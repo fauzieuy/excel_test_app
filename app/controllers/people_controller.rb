@@ -135,6 +135,7 @@ class PeopleController < ApplicationController
       p.last_name = row[1]
       p.age = row[2]
       @people << p
+      p.save
     end
     file.remove!
   end
@@ -157,6 +158,7 @@ class PeopleController < ApplicationController
       p.age = row[2]
       if p.valid?
         @people << p
+        p.save
       else
         @errors["#{@counter+1}"] = p.errors
       end
